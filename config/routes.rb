@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  constraints Clearance::constraints::SignedIn. new do
+    root to: "dashboards#show"
+  end
+
+
   root to: "homes#show"
 
   get "/sign_in" => "sessions#new", as: "sign_in"
